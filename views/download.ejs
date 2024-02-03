@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Download File</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+        margin: 50px;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      .illustration {
+        max-width: 500px;
+        margin-right: 10px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      #upload {
+        display: block;
+        font-weight: bold;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        display: flex;
+        justify-content: start;
+        gap: 140px;
+        align-items: center;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="container"
+      style="
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-top: 20px;
+        margin-bottom: 7px;
+      "
+    >
+      <h2>File Uploaded</h2>
+    </div>
+    <div class="container">
+      <form action="/download" method="post">
+        <input type="number" id="id" name="id" value="<%=fileId%>" hidden />
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          autocomplete="off"
+        />
+        <%  if(error == "error" ){ %>
+            <label>
+                <span style="color: red;" >Password is Incorrect</span>
+            </label>
+        <%  } %>
+        <button
+          type="submit"
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 250px;
+          "
+        >
+          <span style="font-size: 1.2rem; font-weight: 800">Download</span>
+          <svg
+            style="padding: 1px"
+            xmlns="http://www.w3.org/2000/svg"
+            width="25px"
+            viewBox="0 0 512 512"
+          >
+            <path
+              fill="#fff"
+              d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"
+            />
+          </svg>
+        </button>
+        <a class="btn btn-primary my-3" href="/">Home</a>
+      </form>
+    </div>
+  </body>
+</html>
